@@ -11,6 +11,14 @@ body {
   background: hsl(0, 0%, 95%);
 }
 
+.App {
+  text-align: center;
+}
+
+.loading-gif {
+  margin: 4rem 0;
+}
+
 header {
   width: 100%;
   height: 275px;
@@ -79,16 +87,17 @@ header:before {
 }
 
 .btn {
-  width: 100px;
+  width: 130px;
   height: 2.7rem;
   border: none;
   border-radius: 5px;
   background: hsl(192, 100%, 61%);
-  font-family: "Josefin Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1rem;
   color: #ffffff;
   cursor: pointer;
   transition: 0.3s;
+  outline: none;
 }
 
 .btn:hover {
@@ -141,15 +150,37 @@ header:before {
 
 .meal-info p {
   margin-bottom: 0.3rem;
+  color: #2b2b2b;
+}
+
+.instructions {
+  margin-bottom: 1rem !important;
 }
 
 .meal-info p span {
-  font-weight: 500;
+  font-weight: 600;
 }
 
-.meal-link a i {
-  color: #333333;
-  font-size: 1.5rem;
-  margin-right: 1rem;
-  margin-top: 1rem;
+.meal-link a {
+  color: #2b2b2b;
+  font-weight: 600;
+}
+
+.meal-link a:hover {
+  text-decoration: none;
+}
+
+.no-data {
+  margin: 5rem auto;
+}
+
+.category {
+  width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.btn-category {
+  margin: 2px;
 }
