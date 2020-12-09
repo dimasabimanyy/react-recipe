@@ -11,7 +11,8 @@ body {
   background: hsl(0, 0%, 95%);
 }
 
-.App {
+.load {
+  width: 100%;
   text-align: center;
 }
 
@@ -49,11 +50,9 @@ header:before {
 /* SEARCH SECTION */
 
 #search {
-  width: 100%;
   margin-top: -7.5rem;
   z-index: 999;
   position: relative;
-  text-align: center;
   margin-bottom: 3rem;
 }
 
@@ -66,15 +65,20 @@ header:before {
   margin-bottom: 1.5rem;
 }
 
-.search-form {
-  width: fit-content;
+.form-wrapper {
+  width: 500px;
+  text-align: center;
   margin: 0 auto;
+}
+
+.search-form {
   background: #ffffff;
   padding: 0.2rem;
   position: relative;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
     rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  display: flex;
 }
 
 .search-form input {
@@ -84,6 +88,8 @@ header:before {
   border: none;
   font-size: 1rem;
   border-radius: 5px;
+  color: #2b2b2b;
+  font-family: "Poppins", sans-serif;
 }
 
 .btn {
@@ -104,21 +110,52 @@ header:before {
   background: hsl(280, 87%, 65%);
 }
 
+.btn-active {
+  background: hsl(280, 87%, 65%);
+}
+
+@media screen and (max-width: 550px) {
+  header {
+    height: 175px;
+  }
+
+  #search {
+    margin-top: -6rem;
+  }
+
+  #search h1 {
+    font-size: 2rem;
+  }
+
+  .form-wrapper {
+    width: 90%;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+  }
+}
+
 .meals {
   width: 100%;
+  padding: 4rem 0;
 }
 
 .meals-wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  row-gap: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 3rem;
+}
+
+@media screen and (max-width: 1250px) {
+  .meals-wrapper {
+    width: 90%;
+  }
 }
 
 .meal {
-  width: 31%;
   background: #ffffff;
   box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
     rgba(17, 17, 26, 0.05) 0px 8px 32px;
@@ -178,7 +215,12 @@ header:before {
   width: 1100px;
   margin: 0 auto;
   text-align: center;
-  margin-bottom: 3rem;
+}
+
+@media screen and (max-width: 1150px) {
+  .category {
+    width: 90%;
+  }
 }
 
 .btn-category {

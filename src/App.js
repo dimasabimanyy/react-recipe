@@ -10,9 +10,10 @@ function App() {
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("chicken");
   const [categories, setCategories] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState();
 
   useEffect(() => {
+    setIsLoading(true);
     const fetchData = async () => {
       const result = await axios(
         `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`
@@ -42,25 +43,31 @@ function App() {
   };
 
   const getPerCategory = async (choosenCategory) => {
+    setIsLoading(true);
     // Get selected categories
     const res = await axios(
       `https://www.themealdb.com/api/json/v1/1/filter.php?c=${choosenCategory}`
     );
 
     setRecipes(res.data.meals);
+    setIsLoading(false);
   };
 
   return (
     <div className="App">
       <Header />
+
       {/* Search Form */}
       <section id="search">
-        <h1>Recipe App</h1>
-        <form className="search-form" onSubmit={handleSubmit}>
-          <input value={search} onChange={handleChange} />
-          <button className="btn">Search</button>
-        </form>
+        <div className="form-wrapper">
+          <h1>Recipe App</h1>
+          <form className="search-form" onSubmit={handleSubmit}>
+            <input value={search} onChange={handleChange} />
+            <button className="btn">Search</button>
+          </form>
+        </div>
       </section>
+
       {/* Category Search */}
       <div className="category">
         {categories.map((category, index) => (
@@ -75,7 +82,9 @@ function App() {
       </div>
 
       {isLoading ? (
-        <img src={Loading} alt="loading" className="loading-gif" />
+        <div className="load">
+          <img src={Loading} alt="loading" className="loading-gif" />
+        </div>
       ) : (
         <Meals recipes={recipes} />
       )}

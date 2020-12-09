@@ -6,7 +6,7 @@ const Meals = ({ recipes }) => {
     <div className="meals">
       <div className="meals-wrapper">
         {recipes === null ? (
-          <h1 className="no-data">No Data</h1>
+          <h1 className="no-data">Sorry, we dont have that recipe.</h1>
         ) : (
           recipes.map((recipe, index) => <Meal recipe={recipe} key={index} />)
         )}
